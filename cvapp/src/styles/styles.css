@@ -14,8 +14,37 @@ body {
     margin-left: 2vw;
 }
 
-.form {
-    width: 100%;
+.formItems {
+    width: 75vw;
+    display: grid;
+    grid-row-gap: 2vh;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+.label {
+    margin-left: 1vw;
+    justify-self: right;
+    height: 5vh;
+    background-color: aqua;
+    align-self: center;
+    text-align: center;
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+ 
+}
+
+.input {
+    margin-left: 0.5vw;
+    height: 5vh;
+    padding: 1vh;
+    font-size: large;
+}
+
+.button-container {
+    display: flex;
+    justify-content: right;
+    width: 75vw;
+    margin-top: 2vh;
 }
