@@ -1,7 +1,7 @@
 body {
     background-color: red;
     width: 100vw;
-    height: 100vh;
+  
 }
 #root{
     height: 100%;
@@ -23,10 +23,18 @@ body {
     align-items: center;
 }
 
+.dates {
+    display: flex;
+    grid-column: 2/3;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .label {
     margin-left: 1vw;
     justify-self: right;
     height: 5vh;
+    padding: 1vh;
     background-color: aqua;
     align-self: center;
     text-align: center;
@@ -47,4 +55,9 @@ body {
     justify-content: right;
     width: 75vw;
     margin-top: 2vh;
+}
+
+.generalInfo {
+    width: 75vw;
+    margin-left: 2vw;
 }
