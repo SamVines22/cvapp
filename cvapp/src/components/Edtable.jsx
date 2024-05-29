@@ -4,7 +4,25 @@ export default function Edtable(props) {
     console.log(data);
     return (
         <div className = "edInfo">
-            <h2>hello</h2>
+            <h2>Education Experience</h2>
+          
+                <ul>
+                { 
+                    data.map((item)=>{
+                        return (
+                               <div key = {item.id}>  
+                            <li>School: {item.school}</li>
+                            <li>Title: {item.title}</li>
+                            <li>Grade: {item.grade}</li>
+                            <li>Start: {item.startDate}</li>
+                            <li>End: {item.endDate}</li>
+                            </div>
+                        )
+                    })
+                }
+                </ul>
+            
+            
             
         </div>
     )

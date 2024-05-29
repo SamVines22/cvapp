@@ -1,17 +1,18 @@
 import {useState} from 'react';
 import Edtable from './Edtable';
 import Ed from './Ed';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 export default function Education() {
     const [isToggled, setToggle] = useState(true);
-    const [edInfo, setEdInfo] = useState({school : '', title: '', grade: '', startDate: '', endDate: '', edit : false});
+    const [edInfo, setEdInfo] = useState({school : '', title: '', grade: '', startDate: '', endDate: '', id: uuidv4()});
     const [edExp, setEdExp] = useState([]);
+    const [editOn, setEdit] = useState(false); 
 
     function handleSubmit(e) {
-        e.preventDefault();
-        console.log(edInfo);
-        
+        e.preventDefault();  
         setToggle(!isToggled);
         
     }
@@ -19,7 +20,7 @@ export default function Education() {
     function addExp(e) {
         e.preventDefault();
         setEdExp([...edExp,edInfo]);
-        setEdInfo({school: '', title: '', grade: '', startDate: '', endDate: '', edit: false});
+        setEdInfo({school: '', title: '', grade: '', startDate: '', endDate: '', id: uuidv4()});
 
     }
 
@@ -50,8 +51,8 @@ export default function Education() {
                 isToggled ?  
 
                  <div> 
-                    <Ed edExp = {edExp} setEdExp = {setEdExp}/>
-                    
+                    <Ed edExp = {edExp} setEdExp = {setEdExp} schoolChange = {schoolChange} titleChange = {titleChange} gradeChange = {gradeChange} startDateChange = {startDateChange} endDateChange = {endDateChange} editOn = {editOn} setEdit = {setEdit}/>
+                    { !editOn &&
                     <form className = "form" onSubmit = {handleSubmit}>
                         <div className = "formItems">
                             <label htmlFor="school" className = "label" >School</label>
@@ -74,11 +75,12 @@ export default function Education() {
                         </div> 
 
                     </form>
-                   
+}
 
                 </div>: 
-                    
+                    <>
                         <Edtable data = {edExp} />
+                        </>   
                    
             }
 

@@ -1,58 +1,51 @@
-import {useState} from 'react';
-export default function Ed({edExp, setEdExp}) {
-   
-    const [isOn, setOn] = useState(true);
+import Edit from './Edit';
+import { useState } from 'react';
 
-    const items = edExp;
+export default function Ed({...props}) {
+   
+   // const [editOn, setEdit] = useState(false); 
+    const [editKey, setEditKey] = useState('');
+   // const [nonEdit, setNonEdit] = useState([]);
+    
+  
+    const items = props.edExp;
 
     function deleteEd(key) {
         
-        const newEdExp = items.filter((item)=>item.school != key);
-        setEdExp(newEdExp);
+        const newEdExp = items.filter((item)=>item.id != key);
+        props.setEdExp(newEdExp);
 
     }
 
-    function editItem(item) {
-
-        console.log(item);
-        setOn(!isOn);
-        for (let x = 0; x< edExp.length; x++)
-        {
-            console.log(items[x]);
-            if(items[x].school === item){
-                items[x].edit = !items[x].edit;
-                  
-            }
-        }
-        setEdExp(items);
-       
-
-
-
+    function editItem(id) {
+        setEditKey(id);
+       props.setEdit(!props.editOn);
+     
+    
     }
 
-    const editItems = items.filter((item)=> item.edit!=false)
-    console.log(editItems);
-    const noEdit = items.filter((item)=> item.edit == false)
-    console.log(noEdit);
+  
     return (
         <> 
-        <h1>Gimp</h1>
-        <div>
-                        {
+       
+        <div>            
+                         {props.editOn && 
+                        <Edit  edExp = {props.edExp} editKey = {editKey} setEdExp = {props.setEdExp} editOn = {props.editOn} setEdit = {props.setEdit}/>     }     
+                                
+                        {   !props.editOn && 
                             items.map((item)=> {
                                
                                 return ( 
                                
-                                    <div key = {item.school} className = "tempEd"> 
+                                    <div key = {item.id} className = "tempEd"> 
                                         <ul>
                                             <li>School: {item.school}</li>
                                             <li>Title: {item.title}</li>
                                             <li>Grade: {item.grade}</li>
                                             <li>Start: {item.startDate} End: {item.endDate}</li>
                                         </ul>
-                                    <button className="subGen" onClick = {()=> editItem(item.school)}>Edit</button>
-                                    <button className = "subGen" onClick = {()=> deleteEd(item.school)}>Delete</button> 
+                                <button className="subGen" onClick = {()=> editItem(item.id)}>Edit</button>
+                            <button className = "subGen" onClick = {()=> deleteEd(item.id)}>Delete</button>  
                                     </div>  
 
                                    
