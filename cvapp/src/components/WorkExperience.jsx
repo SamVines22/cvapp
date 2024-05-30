@@ -56,7 +56,7 @@ export default function WorkExperience() {
     }
 
     return (
-        <>
+        <div className='workExperience'>
         <h2>Work experience</h2>
            { 
                isToggled?
@@ -96,7 +96,7 @@ export default function WorkExperience() {
            
     
             }
-        </>
+        </div>
     )
 
-}
+        }

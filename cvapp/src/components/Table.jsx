@@ -7,7 +7,7 @@ export default function Table(props) {
 
     return (
         <div className = "generalInfo">
-        <h1>General Information</h1>
+        
         <h3>First Name: {first}</h3>
         <h3>Second Name: {second}</h3>
         <h3>Email: {email}</h3>

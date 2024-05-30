@@ -3,11 +3,9 @@ import { useState } from 'react';
 
 export default function Ed({...props}) {
    
-   // const [editOn, setEdit] = useState(false); 
     const [editKey, setEditKey] = useState('');
-   // const [nonEdit, setNonEdit] = useState([]);
-    
   
+
     const items = props.edExp;
 
     function deleteEd(key) {

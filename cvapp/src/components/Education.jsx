@@ -79,7 +79,7 @@ export default function Education() {
 
                 </div>: 
                     <>
-                        <Edtable data = {edExp} />
+                        <Edtable data = {edExp}  />
                         </>   
                    
             }

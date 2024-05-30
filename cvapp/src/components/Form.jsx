@@ -32,10 +32,10 @@ export default function Form() {
     return (
        
      
-       <>
+       <div className='general'>
          
         <h1>CV Builder</h1>
-        <h2>General Information</h2>
+       <h2>General Information</h2> 
        { isToggled ?
        <form className = "form" onSubmit = {handleSubmit}>
             <div className = "formItems">
@@ -61,7 +61,7 @@ export default function Form() {
             </div>
         }
         
-        </>
+        </div>
     )
      
 
